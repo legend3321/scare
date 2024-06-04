@@ -1,29 +1,28 @@
 from rest_framework.decorators import api_view # type: ignore
 from rest_framework.response import Response # type: ignore
-from django.contrib.auth import authenticate, # type: ignore
-from django.contrib.auth.models import User # type: ignore
+from django.contrib.auth import authenticate # type: ignore
+from rest_framework.authtoken.models import Token # type: ignore
+
+from .serializer import SignupSerializer, LoginSerializer
+
 
 # Create your views here.
 
 @api_view(['POST'])
 def login(request):
-    username = request.data.get('username')
-    password = request.data.get('password')
-    user = authenticate(username=username, password=password)
+    serializer = LoginSerializer(data=request.data) 
+    serializer.is_valid(raise_exception=True)
+    user = authenticate(username=serializer.validated_data['username'], password=serializer.validated_data['password'])
     if user is not None:
-        return Response({'message': 'Login successful'})
+        token = Token.objects.get_or_create(user=user)[0].key
+        return Response({'token': token, 'user': serializer.data})
     else:
         return Response({'message': 'Login failed'}, status=401)
     
 @api_view(['POST'])
 def register(request):
-    username = request.data.get('username')
-    password = request.data.get('password')
-    first_name = request.data.get('first_name')
-    last_name = request.data.get('last_name')
-    email = request.data.get('email')
-    if User.objects.filter(username=username).exists():
-        return Response({'message': 'Username already exists'}, status=400)
-    User.objects.create_user(username=username, password=password, first_name=first_name, last_name=last_name, email=email)
+    serializer = SignupSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
     return Response({'message': 'User created successfully'})
 

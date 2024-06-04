@@ -9,7 +9,7 @@ export default function Hero() {
         xs={12}
         md={4}
         sx={{
-          height: "80vh",
+          height: "90vh",
           display: "flex",
           alignItems: { xs: "center", md: "left" },
           justifyContent: "center",
@@ -28,6 +28,7 @@ export default function Hero() {
 
         <Button
           variant="contained"
+          disableElevation
           sx={{
             mt: 2,
             px: 5,

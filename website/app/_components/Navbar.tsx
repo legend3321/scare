@@ -1,3 +1,4 @@
+import { getUser } from "@/utils/token";
 import {
   AppBar,
   Box,
@@ -6,6 +7,7 @@ import {
   Typography,
   Container,
 } from "@mui/material";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -19,17 +21,23 @@ export default function Navbar() {
     >
       <Toolbar>
         <Container sx={{ display: "flex" }}>
-          <Typography
-            variant="h6"
-            color={"primary"}
-            sx={{ py: 1, letterSpacing: 3 }}
-          >
-            SCare
-          </Typography>
+          <Link href="/">
+            <Typography
+              variant="h6"
+              color={"primary.dark"}
+              sx={{ py: 1, letterSpacing: 1 }}
+            >
+              SCare
+            </Typography>
+          </Link>
 
           <Box sx={{ display: "flex", mx: 3, ml: "auto" }}>
-            <MenuItem>Login</MenuItem>
-            <MenuItem>Signup</MenuItem>
+            <Link href="/login">
+              <MenuItem>Login</MenuItem>
+            </Link>
+            <Link href="/signup">
+              <MenuItem>Signup</MenuItem>
+            </Link>
           </Box>
         </Container>
       </Toolbar>

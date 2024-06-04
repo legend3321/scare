@@ -11,10 +11,10 @@ export default function About() {
         About Us
       </Typography>
       <Grid container spacing={10} sx={{ pt: 5 }}>
-        <Grid item xs={12} md={3} justifyContent={"center"}>
+        <Grid item xs={12} md={3}>
           <AccessTimeFilledTwoToneIcon
             fontSize="large"
-            sx={{ mx: "auto", color: "#BDDDB0" }}
+            sx={{ mx: "auto", color: "primary.main" }}
           />
           <Typography variant="body1" sx={{ textAlign: "justify", mt: 3 }}>
             Helps you quickly analyze a skin lesion. It works in a similar way
@@ -23,10 +23,10 @@ export default function About() {
             lot of time, this web-app does it in an instant!
           </Typography>
         </Grid>
-        <Grid item xs={12} md={3} justifyContent={"center"}>
+        <Grid item xs={12} md={3}>
           <FilterNoneTwoToneIcon
             fontSize="large"
-            sx={{ mx: "auto", color: "#BDDDB0" }}
+            sx={{ mx: "auto", color: "primary.main" }}
           />
           <Typography variant="body1" sx={{ textAlign: "justify", mt: 3 }}>
             Designed to be more than a one-disease app. We have 12,000 diagnosed
@@ -34,10 +34,10 @@ export default function About() {
             as a diagnostic aid for skin cancer lesions (melanoma).
           </Typography>
         </Grid>
-        <Grid item xs={12} md={3} justifyContent={"center"}>
+        <Grid item xs={12} md={3}>
           <PublicTwoToneIcon
             fontSize="large"
-            sx={{ mx: "auto", color: "#BDDDB0" }}
+            sx={{ mx: "auto", color: "primary.main" }}
           />
           <Typography variant="body1" sx={{ textAlign: "justify", mt: 3 }}>
             Our aim is to provide a simple, inexpensive software system to
@@ -45,19 +45,15 @@ export default function About() {
             platform.
           </Typography>
         </Grid>
-        <Grid item xs={12} md={3} justifyContent={"center"}>
+        <Grid item xs={12} md={3}>
           <Groups2TwoToneIcon
             fontSize="large"
-            sx={{ mx: "auto", color: "#BDDDB0" }}
+            sx={{ mx: "auto", color: "primary.main" }}
           />
           <Typography variant="body1" sx={{ textAlign: "justify", mt: 3 }}>
             Our system's algorithm is unique among smartphone applications,
             using sophisticated CBIR (content based image recognition)
-            technology to discriminate skin-lesion types. <br />
-            We are currently expanding our database and algorithm to include
-            basal and squamous cell carcinomas in addition to amelanotic
-            melanomas. As our database grows, this web-app will recognize more
-            and more skin diseases
+            technology to discriminate skin-lesion types.
           </Typography>
         </Grid>
       </Grid>
