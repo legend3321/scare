@@ -1,0 +1,7 @@
+/venv/
+/server/.pytest_cache
+/server/core/.pytest_cache
+/server/core/api/__pycache__
+/server/core/api/migrations
+/server/core/core/__pycache__
+/server/core/images/
